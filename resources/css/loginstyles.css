@@ -1,0 +1,12 @@
+
+body {
+    margin: 0;
+}
+
+.header {
+    border-bottom-style: solid;
+    border-color: rgba(171, 171, 171, 1);
+    padding-left: 25px;
+    box-shadow: 0 0 5px rgba(171, 171, 171, 1);
+}
+
