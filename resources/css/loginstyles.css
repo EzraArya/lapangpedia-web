@@ -10,3 +10,16 @@ body {
     box-shadow: 0 0 5px rgba(171, 171, 171, 1);
 }
 
+.body {
+    display: flex;
+}
+
+#middle-border {
+    border-right-style: solid;
+    border-color: rgba(217, 217, 217, 1);
+    padding-right: 150px;
+    
+}
+.vector-image {
+    padding: 25px 0px 25px 325px;
+}
