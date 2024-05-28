@@ -22,11 +22,11 @@ body {
     
 }
 .vector-image {
-    padding: 25px 0px 25px 325px;
+    padding: 60px 0px 25px 325px;
 }
 
 .login-form {
-    height: 900px;
+    height: 750px;
     width: 954px;
 }
 
@@ -61,6 +61,7 @@ input[type = "submit"] {
     color: white;
     font-weight: bold;
     border-radius: 7.5px;
+    padding: 3px;
 }
 
 input[type = "checkbox"] {
@@ -85,4 +86,11 @@ input[type = "checkbox"] {
 
 .register-link {
     padding: 16px;
+}
+
+.footer {
+    background-color: rgba(0, 15, 66, 1);
+    text-align: center;
+    padding: 30px;
+    color:  rgba(238, 241, 254, 1);
 }
