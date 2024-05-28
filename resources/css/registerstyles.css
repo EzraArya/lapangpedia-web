@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+.header {
+    border-bottom-style: solid;
+    border-color: rgba(171, 171, 171, 1);
+    padding-left: 25px;
+    box-shadow: 0 0 5px rgba(171, 171, 171, 1);
+}
+
+.body {
+    display: flex;
+    font-family: 'Montserrat';
+}
+
+#middle-border {
+    border-right-style: solid;
+    border-color: rgba(217, 217, 217, 1);
+    padding-right: 150px;
+}
+
+.vector-image {
+    padding: 60px 0px 25px 325px;
+}
+
+/*  */
+
+.footer {
+    background-color: rgba(0, 15, 66, 1);
+    text-align: center;
+    padding: 30px;
+    color:  rgba(238, 241, 254, 1);
+    margin-top: 50px;
+}
+

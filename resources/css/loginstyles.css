@@ -19,7 +19,6 @@ body {
     border-right-style: solid;
     border-color: rgba(217, 217, 217, 1);
     padding-right: 150px;
-    
 }
 .vector-image {
     padding: 60px 0px 25px 325px;
@@ -45,7 +44,7 @@ h2 {
 }
 
 .email-box, .password-box, .checkbox-me{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border-radius: 30px;
 }
 
