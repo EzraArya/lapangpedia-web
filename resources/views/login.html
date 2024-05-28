@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Login Page</title>
         <link rel="stylesheet" href="../css/loginstyles.css">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     </head>
     <body>
         <div class="header">
@@ -17,24 +18,33 @@
                 <div class="login-box">
                     <div><h2>Login</h2></div>
                     <form>
-                        <div>
+                        <div class="email-box">
                             <label for="email">Email Address</label><br>
-                            <input type="text" id="email" name="email" value="example@gmail.com">
+                            <input type="text" id="email" name="email" value="  example@gmail.com">
                         </div>
-                        <div>
+                        <div class="password-box">
                             <label for="password">Password</label><br>
-                            <input type="text" id="password" name="password" value="password">
+                            <input type="text" id="password" name="password" value="  password">
                         </div>
-                        <div>
-                            <input type="checkbox" id="remember-me" name="remember-me">
-                            <label for="remember-me">Remember Me</label>
-                            <a> Forget Password</a>
+                        <div class="checkbox-me">
+                            <div>
+                                <input type="checkbox" id="remember-me" name="remember-me">
+                                <label id="remember-label" for="remember-me">Remember Me</label>
+                            </div>
+                            <div>
+                                <a>Forget Password?</a>
+                            </div>
                         </div>
-                        <div>
+                        <div class="login-btn">
                             <input type="submit" value="Login">
                         </div>
-                        <div>
-                            <p>Don't have an Account? <a>Register here</a></p>
+                        <div class="register">
+                            <div>
+                                <p>Don't have an Account?</p>
+                            </div>
+                            <div class="register-link">
+                                <a>Register here</a>
+                            </div>
                         </div>
                     </form>
                 </div>

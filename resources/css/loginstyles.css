@@ -12,6 +12,7 @@ body {
 
 .body {
     display: flex;
+    font-family: "Montserrat";
 }
 
 #middle-border {
@@ -22,4 +23,66 @@ body {
 }
 .vector-image {
     padding: 25px 0px 25px 325px;
+}
+
+.login-form {
+    height: 900px;
+    width: 954px;
+}
+
+.login-box {
+    height: 600px;
+    width: 400px;
+    padding: 150px 0px 0px 150px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 50px;
+    color: rgba(0, 15, 66, 1);
+    font-weight: bolder;
+    margin: 25px;
+}
+
+.email-box, .password-box, .checkbox-me{
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+
+input[type = "text"]  {
+    width: 98%;
+    line-height: 35px;
+}
+
+input[type = "submit"] {
+    width: 100%;
+    font-size: 33px;
+    background-color: rgba(0, 15, 66, 1);
+    color: white;
+    font-weight: bold;
+    border-radius: 7.5px;
+}
+
+input[type = "checkbox"] {
+    transform: scale(1.75);
+    accent-color: #ffffff;
+}
+
+.checkbox-me {
+    display: flex;
+    gap: 125px;
+    color: rgba(0, 15, 66, 1);
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.register {
+    color: rgba(0, 15, 66, 1);
+    font-weight: bolder;
+    padding-left: 25px;
+    display: flex;
+}
+
+.register-link {
+    padding: 16px;
 }
