@@ -1,84 +1,53 @@
-<style>
-    /* Additional styles for carousel */
-    .carousel {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .carousel-slide {
-      min-width: 100%;
-      box-sizing: border-box;
-    }
-  </style>
-
-<div class="carousel">
-    <div class="container mx-auto mt-10">
-        <div class="carousel relative">
-          <!-- Carousel Track -->
-          <div class="carousel-track flex">
-            <!-- Slide 1 -->
-            <div class="carousel-slide">
-              <img src="https://via.placeholder.com/800x400?text=Slide+1" alt="Slide 1" class="w-full h-auto">
-            </div>
-            <!-- Slide 2 -->
-            <div class="carousel-slide">
-              <img src="https://via.placeholder.com/800x400?text=Slide+2" alt="Slide 2" class="w-full h-auto">
-            </div>
-            <!-- Slide 3 -->
-            <div class="carousel-slide">
-              <img src="https://via.placeholder.com/800x400?text=Slide+3" alt="Slide 3" class="w-full h-auto">
-            </div>
-          </div>
-          <!-- Previous Button -->
-            <button id="prevButton" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-6 py-4 text-lg">
-        &larr;
-            </button>
-      <!-- Next Button -->
-            <button id="nextButton" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-6 py-4 text-lg">
-        &rarr;
-      </button>
-        </div>
+<div class="carousel flex justify-center">
+<div id="indicators-carousel" class="relative w-full" data-carousel="static">
+  <!-- Carousel wrapper -->
+  <div class="relative h-64 overflow-hidden rounded-lg md:h-96 lg:h-[40rem]">
+       <!-- Item 1 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+          <img src="{{asset('images/test/20210323_155101106_iOS.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
-    
+      <!-- Item 2 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="{{asset('images/test/GOGUf BacAAy96t.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 3 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="{{asset('images/test/Pepeneko0929 media.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 4 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="{{asset('images/test/Sasakichi Skeb.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+      <!-- Item 5 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="{{asset('images/test/Skeb Media Post copy.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+      </div>
+  </div>
+  <!-- Slider indicators -->
+  <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+  </div>
+  <!-- Slider controls -->
+  <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+          </svg>
+          <span class="sr-only">Previous</span>
+      </span>
+  </button>
+  <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          </svg>
+          <span class="sr-only">Next</span>
+      </span>
+  </button>
 </div>
-      <script>
-        const track = document.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextButton = document.querySelector('#nextButton');
-        const prevButton = document.querySelector('#prevButton');
-        const slideWidth = slides[0].getBoundingClientRect().width;
-    
-        // Arrange the slides next to one another
-        slides.forEach((slide, index) => {
-          slide.style.left = slideWidth * index + 'px';
-        });
-    
-        const moveToSlide = (track, currentSlide, targetSlide) => {
-          track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-          currentSlide.classList.remove('current-slide');
-          targetSlide.classList.add('current-slide');
-        }
-    
-        prevButton.addEventListener('click', () => {
-          const currentSlide = track.querySelector('.current-slide');
-          const prevSlide = currentSlide.previousElementSibling;
-          if (prevSlide) {
-            moveToSlide(track, currentSlide, prevSlide);
-          }
-        });
-    
-        nextButton.addEventListener('click', () => {
-          const currentSlide = track.querySelector('.current-slide');
-          const nextSlide = currentSlide.nextElementSibling;
-          if (nextSlide) {
-            moveToSlide(track, currentSlide, nextSlide);
-          }
-        });
-    
-        // Set the first slide as the current slide
-        slides[0].classList.add('current-slide');
-      </script>
+
+</div>
