@@ -1,7 +1,7 @@
-@props(['text', 'class'])
+@props(['text', 'class', 'link'])
 
 <div class="button">
     <button class="{{$class}}">
-        <a href="#">{{$text}}</a>
+        <a href="{{$link}}">{{$text}}</a>
     </button>
 </div>
