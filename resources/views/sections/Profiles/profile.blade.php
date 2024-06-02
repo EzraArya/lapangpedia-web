@@ -16,24 +16,24 @@
                                 <div class="flex flex-row w-full">
                                     <div class="container flex flex-col items-center mb-2">
                                         <label for="first-name" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">First Name</label>
-                                        <input type="text" name="first-name" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="John">
+                                        <input type="text" name="first-name" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="{{$user->first_name}}" disabled>
                                     </div>
                                     <div class="container flex flex-col items-center mb-2">
                                         <label for="last-name" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Last Name</label>
-                                        <input type="text" name="last-name" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="Doe">
+                                        <input type="text" name="last-name" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="{{$user->last_name}}" disabled>
                                     </div>
                                 </div>
                                 <div class="container flex flex-col items-center mb-2">
                                     <label for="email" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Email Address</label>
-                                    <input type="email" name="email" class="border border-grey-100 focus:border-black rounded-md h-10 w-full indent-1 font-montserrat text-sm" placeholder="example@gmail.com">
+                                    <input type="email" name="email" class="border border-grey-100 focus:border-black rounded-md h-10 w-full indent-1 font-montserrat text-sm" placeholder="{{$user->email}}" disabled>
                                 </div>
                                 <div class="container flex flex-col items-center mb-2">
                                     <label for="phone" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Phone Number</label>
-                                    <input type="text" name="phone" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="xxxx-xxxx-xxxx-xxxx">
+                                    <input type="text" name="phone" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="{{$user->phone}}" disabled>
                                 </div>
                                 <div class="container flex flex-col items-center mb-2">
                                     <label for="dob" class=" font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Date of Birth</label>
-                                    <input type="date" name="dob" class=" form-input border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm">
+                                    <input type="text" name="dob" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="{{$user->dob}}" disabled>
                                 </div>
                                 <button type="submit" class="text-white-100 bg-blue-500 w-full h-12 items-center focus:bg-blue-950 border rounded-md font-montserrat font-bold text-2xl ">Edit</button>
                             </form>
@@ -50,32 +50,28 @@
                 <div class="w-full h-auto flex justify-center items-center col-start-2">
                     <div class="flex-1 text-center flex justify-center">
                         <div class="container h-full w-full flex flex-col justify-center items-center gap-4">
-                            <form action="" class="justify-center flex flex-col items-center w-[32rem]">
+                            <form action="{{route('store-address')}}" method="POST" class="justify-center flex flex-col items-center w-[32rem]">
+                                @csrf
                                 <hr class="w-full h-2 mb-2">
                                 <div class="container flex flex-col items-center mb-2">
                                     <label for="country" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Countries</label>
-                                    <select name="country" class="border border-grey-100 focus:border-black rounded-md h-10 w-full indent-1 font-montserrat text-sm" placeholder="example@gmail.com">
-                                        <option value="">Indonesia</option>
-                                        <option value="">United States</option>
-                                        <option value="">Japan</option>
-                                        <option value="">Korea</option>
-                                    </select>
+                                    <input type="text" name="country" class="border border-grey-100 focus:border-black rounded-md h-10 w-full indent-1 font-montserrat text-sm" id="" placeholder="{{ $user->address ? $user->address->country : '' }}">
                                 </div>
                                 <div class="container flex flex-col items-center mb-2">
                                     <label for="zipcode" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Zipcode</label>
-                                    <input type="number" name="zipcode" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="1">
+                                    <input type="number" name="zipcode" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="{{ $user->address ? $user->address->zipcode : '' }}">
                                 </div>
                                 <div class="container flex flex-col items-center mb-2">
                                     <label for="state" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">State/Province/Region</label>
-                                    <input type="text" name="state" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="">
+                                    <input type="text" name="state" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="{{ $user->address ? $user->address->state : '' }}">
                                 </div>
                                 <div class="container flex flex-col items-center mb-2">
                                     <label for="city" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">City</label>
-                                    <input type="text" name="city" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="">
+                                    <input type="text" name="city" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="{{ $user->address ? $user->address->city : '' }}">
                                 </div>
                                 <div class="container flex flex-col items-center mb-2">
                                     <label for="address" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Address</label>
-                                    <input type="text" name="address" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="">
+                                    <input type="text" name="address" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-1 font-montserrat text-sm" placeholder="{{ $user->address ? $user->address->address : '' }}">
                                 </div>
                                 <button type="submit" class="text-white-100 bg-blue-500 w-full h-12 items-center focus:bg-blue-950 border rounded-md font-montserrat font-bold text-2xl ">Edit</button>
                             </form>
