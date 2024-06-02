@@ -4,11 +4,11 @@
   <div class="relative h-64 overflow-hidden rounded-lg md:h-96 lg:h-[40rem]">
        <!-- Item 1 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-          <img src="{{asset('images/test/20210323_155101106_iOS.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <img src="{{asset('images/test/1.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
       <!-- Item 2 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <img src="{{asset('images/test/GOGUf BacAAy96t.jpeg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          <img src="{{asset('images/test/20210323_155101106_iOS.jpg')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
       <!-- Item 3 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>

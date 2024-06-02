@@ -1,5 +1,4 @@
 @props(['link'])
-
 <div class="card">
     <div class="max-w-64 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="{{$link}}">
