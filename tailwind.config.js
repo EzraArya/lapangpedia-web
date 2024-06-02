@@ -4,6 +4,7 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
@@ -15,12 +16,26 @@ export default {
           '100' : '#ABABAB'
         },
         'blue' : {
-          '500' : '#000F42'
+          '500' : '#000F42',
+          '100' : '#99B0FF'
+        },
+        'purple' : {
+          '100' : '#685DE2',
+          '200' : '#4436E6'
         }
       },
     fontFamily: {
       'montserrat': ['Montserrat', 'sans-serif'],
-    }},
+    },
+    variants: {
+      extend: {
+        backgroundColor: ['active'],
+        textColor: ['active'],
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+}
 }
