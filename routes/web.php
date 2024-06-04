@@ -45,9 +45,10 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/transaction-history', function(){
         return view('sections.Profiles.transaction-history');
     })->name('transaction-history');
-    Route::get('/seller-home', function(){
-        return view('sections.Sellers.home');
-    })->name('seller-home');
+    Route::get('/seller-home', [ProductController::class, 'indexSeller'])->name('seller-home');
+    // Route::get('/seller-home', function(){
+    //     return view('sections.Sellers.home');
+    // })->name('seller-home');
     // Route::get('/product-listing', function(){
     //     return view('sections.Sellers.product-listing');
     // })->name('create-product');
