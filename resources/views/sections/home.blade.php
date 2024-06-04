@@ -51,7 +51,8 @@
                         </div>
                     </div>
             </section>
-        </div>    </div>
+        </div>    
+    </div>
     <div class="mt-4">
         <div class="recomendation_bar">
             <section class="bg-white">
@@ -61,11 +62,13 @@
                        @foreach ($auctions as $auction)
                        <div class="card">
                         <div class="max-w-64 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <a href="{{route('product-page', ['id' => $auction->product->id])}}">
-                                <img class="rounded-t-lg" src="{{ asset('storage/' . $auction->product->image) }}" alt="" />
-                            </a>
+                            @if ($auction->product->images->count() > 0)
+                                <a href="{{route('product-page', ['id' => $auction->product->id])}}">
+                                    <img class="rounded-t-lg h-52 w-full object-cover" src="{{ asset('storage/' . $auction->product->images->first()->path) }}" alt="" loading="lazy"/>
+                                </a>
+                            @endif
                             <div class="p-3 pt-1 items-center justify-center flex flex-col">
-                                <a href="{{route('product-page', ['id' => $auction->product->id])}}">">
+                                <a href="{{route('product-page', ['id' => $auction->product->id])}}">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$auction->product->name}}</h5>
                                 </a>
                                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$auction->product->description}}</p>
@@ -79,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                       @endforeach  
+                    @endforeach  
                     </div>
                 </div>
             </section>
