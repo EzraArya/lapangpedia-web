@@ -14,28 +14,70 @@
                         <div class="flex flex-row w-full">
                             <div class="container flex flex-col items-center mb-2">
                                 <label for="first_name" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">First Name</label>
-                                <input type="text" name="first_name" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm" placeholder="John">
+                                <input type="text" name="first_name" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm" placeholder="John" value="{{old('first_name')}}">
+                                @error('first_name')
+                                    <div class="flex items-center p-2 text-xs w-full text-red-800 rounded-lg bg-red-50 " role="alert">
+                                        <div>
+                                            {{$message}}
+                                        </div>
+                                    </div>
+                                @enderror
                             </div>
                             <div class="container flex flex-col items-center mb-2">
                                 <label for="last_name" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Last Name</label>
-                                <input type="text" name="last_name" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm" placeholder="Doe">
+                                <input type="text" name="last_name" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm" placeholder="Doe" value="{{old('last_name')}}">
+                                @error('last_name')
+                                    <div class="flex items-center p-2 text-xs w-full text-red-800 rounded-lg bg-red-50 " role="alert">
+                                        <div>
+                                            {{$message}}
+                                        </div>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="container flex flex-col items-center mb-2">
                             <label for="email" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Email Address</label>
-                            <input type="email" name="email" class="border border-grey-100 focus:border-black rounded-md h-10 w-full indent-2 font-montserrat text-sm" placeholder="example@gmail.com">
+                            <input type="email" name="email" class="border border-grey-100 focus:border-black rounded-md h-10 w-full indent-2 font-montserrat text-sm" placeholder="example@gmail.com" value="{{old('email')}}">
+                            @error('email')
+                            <div class="flex items-center p-2 text-xs w-full text-red-800 rounded-lg bg-red-50 " role="alert">
+                                <div>
+                                    {{$message}}
+                                </div>
+                            </div>
+                        @enderror
                         </div>
                         <div class="container flex flex-col items-center mb-2">
                             <label for="phone" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Phone Number</label>
-                            <input type="text" name="phone" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm" placeholder="xxxx-xxxx-xxxx-xxxx">
+                            <input type="text" name="phone" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm" placeholder="xxxx-xxxx-xxxx-xxxx" value="{{old('phone')}}">
+                            @error('phone')
+                            <div class="flex items-center p-2 text-xs w-full text-red-800 rounded-lg bg-red-50 " role="alert">
+                                <div>
+                                    {{$message}}
+                                </div>
+                            </div>
+                        @enderror
                         </div>
                         <div class="container flex flex-col items-center mb-2">
                             <label for="dob" class=" font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Date of Birth</label>
-                            <input type="date" name="dob" class=" form-input border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm">
+                            <input type="date" name="dob" class=" form-input border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm"value="{{old('dob')}}" >
+                            @error('dob')
+                            <div class="flex items-center p-2 text-xs w-full text-red-800 rounded-lg bg-red-50 " role="alert">
+                                <div>
+                                    {{$message}}
+                                </div>
+                            </div>
+                            @enderror
                         </div>
                         <div class="container flex flex-col items-center mb-2">
                             <label for="password" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Password</label>
-                            <input type="password" name="password" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm" placeholder="Password">
+                            <input type="password" name="password" class="border border-grey-100 focus:border-black rounded-md h-9 w-full indent-2 font-montserrat text-sm" placeholder="Password" value="{{old('password')}}">
+                            @error('password')
+                            <div class="flex items-center p-2 text-xs w-full text-red-800 rounded-lg bg-red-50 " role="alert">
+                                <div>
+                                    {{$message}}
+                                </div>
+                            </div>
+                        @enderror
                         </div>
                         <div class="container flex flex-col items-center mb-3">
                             <label for="confirm-password" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Confirm Password</label>
