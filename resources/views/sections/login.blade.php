@@ -13,11 +13,17 @@
                         <hr class="w-full mb-2">
                         <div class="container flex flex-col items-center mb-2">
                             <label for="email" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Email Address</label>
-                            <input type="text" name="email" class="border border-grey-100 focus:border-black rounded-md h-10 w-full indent-2 font-montserrat text-sm" placeholder="example@gmail.com">
+                            <input type="text" value="{{ old('email') }}" name="email" class="border {{ $errors->has('email') ? 'border-red-500' : 'border-grey-100' }} focus:border-black rounded-md h-10 w-full indent-2 font-montserrat text-sm" placeholder="example@gmail.com" required>
+                            @error('email')
+                                <span class="text-red-500 text-xs italic">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="container flex flex-col items-center">
                             <label for="password" class="font-montserrat font-semibold text-lg text-grey-100 text-left self-start">Password</label>
-                            <input type="password" name="password" class="border border-grey-100 focus:border-black rounded-md h-10 w-full indent-2 font-montserrat text-sm" placeholder="Password">
+                            <input type="password" value="{{ old('password') }}" name="password" class="border {{ $errors->any('password') ? 'border-red-500' : 'border-grey-100' }} focus:border-black rounded-md h-10 w-full indent-2 font-montserrat text-sm" placeholder="Password" required>
+                            @error('password')
+                                <span class="text-red-500 text-xs italic">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="flex justify-between gap-x-1 mt-3 w-full items-center mb-2  ">
                             <div class="flex flex-row gap-1 items-center">
