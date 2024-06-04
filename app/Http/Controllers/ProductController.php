@@ -16,6 +16,11 @@ class ProductController extends Controller
         return response()->json(['products' => $products], 200);
     }
 
+    public function indexSeller(){
+        $products = Product::where('user_id', Auth::id())->with('auction')->get();
+        return view('sections.Sellers.home', ['products' => $products]);
+    }
+
     public function createProduct(Request $request)
     {
         $request->validate([
@@ -28,14 +33,12 @@ class ProductController extends Controller
             'bin' => 'required|numeric',
             'start' => 'required|date',
             'end' => 'required|date|after:start',
-            'image' => 'required|image',
+            'image.*' => 'required|image',
         ]);
     
         DB::beginTransaction();
     
         try {
-            $imagePath = $request->file('image')->store('products', 'public');
-
             $product = Product::create([
                 'user_id' => Auth::id(),
                 'name' => $request->name,
@@ -43,8 +46,15 @@ class ProductController extends Controller
                 'quantity' => $request->quantity,
                 'condition' => $request->condition,
                 'category_id' => $request->category_id,
-                'image' => $imagePath,
             ]);
+
+             if ($request->hasFile('image')) {
+                 foreach ($request->file('image') as $image) {
+                     $path = $image->store('products', 'public');
+                     $product->images()->create(['path' => $path]);
+                 }
+             }
+
     
             $auction = $this->createAuction($request, $product);
     
