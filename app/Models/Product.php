@@ -25,7 +25,7 @@ class Product extends Model
     }
     public function auction()
     {
-        return $this->hasMany(Auction::class);
+        return $this->hasOne(Auction::class);
     }
 
     public function user()
@@ -33,4 +33,9 @@ class Product extends Model
         return $this->belongsTo(User::class);
     }
 
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }
