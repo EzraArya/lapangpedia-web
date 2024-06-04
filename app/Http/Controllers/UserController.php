@@ -66,16 +66,28 @@ class UserController extends Controller
     }
 
     public function LoginPost(Request $request){
-        $credentials = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('home-page');
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+    
+        $user = User::where('email', $request->email)->first();
+    
+        if (!$user) {
+            return back()->withErrors([
+                'email' => 'Email incorrect',
+            ])->withInput();
         }
-        
-        return back()->with('error', 'Email or Password salah');
+    
+        if (!Hash::check($request->password, $user->password)) {
+            return back()->withErrors([
+                'password' => 'Password incorrect',
+            ])->withInput();
+        }
+    
+        Auth::login($user);
+    
+        return redirect()->route('home-page');
     }
 
     public function Login(){
