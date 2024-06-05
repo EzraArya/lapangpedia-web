@@ -119,10 +119,20 @@
                         </div>
                         <hr class="w-full">
                     </div>
-                    <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="rounded-md border-blue-500 border-2 w-96 h-10 font-montserrat bg-blue-500 text-white-100 hover:bg-white-100 hover:text-blue-500 duration-150 mb-2 mt-2 drop-shadow-md" type="button">
+                    @if ($auction->auction_status == "ended")
+                        <div class="w-full items-center mt-2">
+                            <h1 class="font-montserrat text-md text-center font-bold">The auction has ended</h1>
+                        </div>
+                    @endif
+                    <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="rounded-md border-blue-500 border-2 w-96 h-10 font-montserrat bg-blue-500 text-white-100 hover:bg-white-100 hover:text-blue-500 duration-150 mb-2 mt-2 drop-shadow-md" type="button" @if ($auction->auction_status == "ended")
+                        disabled
+                    @endif>
                         Place Bid
                     </button>
-                    <button data-modal-target="buynow-modal" data-modal-toggle="buynow-modal" class="rounded-md border-blue-100 border-2 w-96 h-10 font-montserrat bg-blue-100 text-white-100 hover:bg-white-100 hover:text-blue-500 duration-150 drop-shadow-md" type="button">
+                    <button data-modal-target="buynow-modal" data-modal-toggle="buynow-modal" class="rounded-md border-blue-100 border-2 w-96 h-10 font-montserrat bg-blue-100 text-white-100 hover:bg-white-100 hover:text-blue-500 duration-150 drop-shadow-md" type="button" 
+                    @if ($auction->auction_status == "ended")
+                        disabled
+                    @endif>
                         Buynow
                     </button>
                 </div>
@@ -133,7 +143,7 @@
         <div class="py-4 px-2 mx-auto max-w-screen-xl sm:py-4 lg:px-6">
             <h1 class="text-lg bg-blue-500 font-medium text-white-100 rounded-tr-md rounded-tl-md font-montserrat indent-3 mb-1">Product Description</h1>
             <div class="flex flex-wrap h-full w-full gap-3 justify-center font-montserrat text-sm"> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore iusto asperiores rerum repellendus sed ipsum officia facere pariatur nulla? Dolore sequi quas nihil est officiis quibusdam doloribus, vel pariatur ad modi officia nulla nemo, totam, illo distinctio nostrum rem eos! Optio obcaecati voluptatum quidem fugit corrupti sapiente nesciunt alias cum!</p>
+                <p>{{$auction->product->description}}</p>
             </div>
         </div>
     </section>
@@ -189,12 +199,17 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <div class="w-full h-16 flex justify-center mb-4 items-center"> 
-                <a href="{{route('payment-page')}}">
-                    <button class="rounded-md border-blue-100 border-2 w-96 h-10 font-montserrat bg-blue-100 text-white-100 hover:bg-white-100 hover:text-blue-500 duration-150 drop-shadow-md">
+            <div class="w-full h-auto flex justify-center mb-4 items-center"> 
+                <form action="{{route('buyout-store', $auction)}}" method="POST" class="gap-2 flex flex-col m-3">
+                    @csrf
+                    <div class="flex flex-row justify-evenly form-check font-montserrat font-medium text-md">
+                        <input type="checkbox" name="agree" value="1" required>
+                        <label for="agree">I agree to the terms and conditions</label>
+                    </div>
+                    <button type="submit" class="rounded-md border-blue-100 border-2 w-96 h-10 font-montserrat bg-blue-100 text-white-100 hover:bg-white-100 hover:text-blue-500 duration-150 drop-shadow-md">
                         Buy Now
                     </button>
-                </a>
+                </form>
             </div>
         </div>
     </div>
