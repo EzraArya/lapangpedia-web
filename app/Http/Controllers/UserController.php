@@ -94,6 +94,22 @@ class UserController extends Controller
         return view('sections.login');
     }
 
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+    
+        $user = User::where('email', $request->email)->first();
+    
+        $user->password = Hash::make($request->password);
+        $user->save();
+    
+        return redirect()->route('forgot-success');
+    
+    }
+
     public function logout(){
         Auth::logout();
         return redirect()->route('home-page');
