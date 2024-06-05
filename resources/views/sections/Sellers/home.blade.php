@@ -33,7 +33,7 @@
                                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$product->description}}</p>
                                     <div class="w-full flex justify-evenly items-center h-full">
                                         <p class="mb-3 font-normal text-lg text-blue-500 dark:text-blue-500">{{($product->auction)->starting_price}}</p>
-                                        <p class="mb-3 font-normal text-lg text-red-800">{{\Carbon\Carbon::parse(($product->auction)->starting_price)->diffForHumans() }}</p>
+                                        <p class="mb-3 font-normal text-lg text-red-800">{{\Carbon\Carbon::parse(($product->auction)->start_time)->diffForHumans() }}</p>
                                     </div>
                                 </div>
                             </a>
@@ -58,7 +58,7 @@
                                         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{$product->description}}</p>
                                         <div class="w-full flex justify-evenly items-center h-full">
                                             <p class="mb-3 font-normal text-lg text-blue-500 dark:text-blue-500">{{($product->auction)->starting_price}}</p>
-                                            <p class="mb-3 font-normal text-lg text-red-800">{{\Carbon\Carbon::parse(($product->auction)->starting_price)->diffForHumans() }}</p>
+                                            <p class="mb-3 font-normal text-lg text-red-800">{{\Carbon\Carbon::parse(($product->auction)->start_time)->diffForHumans() }}</p>
                                         </div>
                                     </div>
                                 </a>
