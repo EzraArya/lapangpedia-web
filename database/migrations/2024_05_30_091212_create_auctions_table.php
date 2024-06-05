@@ -19,8 +19,9 @@ return new class extends Migration
             $table->timestamp('end_time')->nullable();
             $table->decimal('buyout_price', 8, 2)->nullable();
             $table->decimal('starting_price', 8, 2)->nullable();
+            $table->string('auction_status')->default('ongoing');
+            $table->string('payment_status')->default('unpaid');
             $table->timestamps();
-        
             $table->foreign('product_id')->references('id')->on('products');  
             $table->foreign('winner_id')->references('id')->on('users');
       
