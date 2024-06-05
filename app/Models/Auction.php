@@ -15,8 +15,21 @@ class Auction extends Model
         'start_time',
         'end_time',
         'starting_price',
-        'buyout_price'
+        'buyout_price',
+        'auction_status',
+        'payment_status',
     ];
+
+
+    public function isBoughtOut()
+    {
+        return $this->highest_bid >= $this->buyout_price;
+    }
+
+    public function hasTimeEnded()
+    {
+        return \Carbon\Carbon::now()->greaterThanOrEqualTo($this->end_date);
+    }
 
     public function product()
     {
