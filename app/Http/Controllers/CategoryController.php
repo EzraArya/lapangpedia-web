@@ -47,6 +47,8 @@ class CategoryController extends Controller
     
         if (empty($categoryIds)) {
             $auctions = collect();
+        } else if(in_array('all', $categoryIds)){
+            $auctions = Auction::all();
         } else {
             $auctions = Auction::join('products', 'auctions.product_id', '=', 'products.id')
                 ->whereIn('products.category_id', $categoryIds)
