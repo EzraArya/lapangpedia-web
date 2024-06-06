@@ -18,6 +18,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home-page');
 Route::get('/product-list/{categories}', [CategoryController::class, 'showByCategory'])->name('product-list');
 Route::get('/product-list/filter/{categories}', [CategoryController::class, 'filterByCategory'])->name('filter-list');
 Route::get('/product/{id}', [ProductController::class, 'showProduct'])->name('product-page');
+Route::get('/search', [AuctionController::class, 'search'])->name('search');
 
 Route::group(['middleware' => 'guest'], function(){
     Route::get('/login',[UserController::class, 'Login'])->name('login-page');
