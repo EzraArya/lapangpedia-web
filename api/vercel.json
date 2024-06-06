@@ -8,6 +8,8 @@
         "src": "/(.*)",
         "dest": "/api/index.php"
     }],
+    "rewrites": [{ "source": "/(.*)", "destination": "/" }],
+    
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
