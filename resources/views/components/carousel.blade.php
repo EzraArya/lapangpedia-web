@@ -2,7 +2,7 @@
 <div id="indicators-carousel" class="relative w-full" data-carousel="static">
   <!-- Carousel wrapper -->
   <div class="relative h-64 overflow-hidden rounded-lg md:h-96 lg:h-[40rem]">
-       <!-- Item 1 -->
+      <!-- Item 1 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
           <img src="{{asset('images/test/1.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
