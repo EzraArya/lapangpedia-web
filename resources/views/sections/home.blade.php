@@ -60,12 +60,14 @@
                     <h1 class="text-lg bg-blue-500 font-medium text-white-100 rounded-tr-md rounded-tl-md font-montserrat indent-3 mb-2">Recommendation</h1>
                     <div class="flex flex-wrap h-full w-full gap-3 justify-center">
                        @foreach ($auctions as $auction)
+                       @if ($auction->auction_status == "ongoing")
+                           
                        <div class="card">
-                        <div class="max-w-64 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            @if ($auction->product->images->count() > 0)
-                                <a href="{{route('product-page', ['id' => $auction->product->id])}}">
-                                    <img class="rounded-t-lg h-52 w-full object-cover" src="{{ asset('storage/' . $auction->product->images->first()->path) }}" alt="" loading="lazy"/>
-                                </a>
+                           <div class="max-w-64 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                               @if ($auction->product->images->count() > 0)
+                               <a href="{{route('product-page', ['id' => $auction->product->id])}}">
+                                <img class="rounded-t-lg h-52 w-full object-cover" src="{{ asset('storage/' . $auction->product->images->first()->path) }}" alt="" loading="lazy"/>
+                            </a>
                             @endif
                             <div class="p-3 pt-1 items-center justify-center flex flex-col">
                                 <a href="{{route('product-page', ['id' => $auction->product->id])}}">
@@ -82,6 +84,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     @endforeach  
                     </div>
                 </div>
