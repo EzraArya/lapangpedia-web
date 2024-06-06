@@ -10,6 +10,21 @@ use Illuminate\Support\Facades\DB;
 
 class AuctionController extends Controller
 {
+    public function search(Request $request)
+    {
+        $category_id = $request->input('category_id');
+        $product_name = $request->input('product_name');
+    
+        $auctions = Auction::whereHas('product', function ($query) use ($category_id, $product_name) {
+            $query->where('name', 'like', '%' . $product_name . '%')
+                  ->whereHas('category', function ($query) use ($category_id) {
+                      $query->where('id', $category_id);
+                  });
+        })->get();
+    
+    
+        return view('sections.Products.product-list', ['auctions' => $auctions]);
+    }
     public function buyoutProduct(Request $request, Auction $auction){
         $request->validate([
             'agree' => 'required',
