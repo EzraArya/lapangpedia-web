@@ -43,9 +43,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/create-product', [CategoryController::class, 'create'])->name('create-product');
     Route::post('/store-product', [ProductController::class, 'createProduct'])->name('store-product');
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
-    Route::get('/payment-method', function(){
-        return view('sections.Transactions.payment');
-    })->name('payment-page');
+    Route::get('/payment-method/{id}', [TransactionController::class, 'showProductTransaction'])->name('payment-page');
+    Route::post('/payment/{auction}/pay', [TransactionController::class, 'transactionPayment'])->name('payment-store');
     Route::get('/payment-success', function(){
         return view('sections.Transactions.payment-complete');
     })->name('payment-success');
