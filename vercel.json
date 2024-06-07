@@ -3,10 +3,6 @@
     "functions": {
         "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
-      "builds": [
-        { "src": "/api/index.php", "use": "vercel-php@0.6.0" },
-        { "src": "/public/**", "use": "@vercel/static" }
-    ],
 
     "routes": [{
         "src": "/build/(.*)", "dest": "/public/build/" 
@@ -20,7 +16,7 @@
     "env": {
         "APP_NAME": "lelangpedia",
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://lelangpedia.vercel.app",
 
     "APP_CONFIG_CACHE": "/tmp/config.php",
@@ -32,7 +28,6 @@
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
-        "VIEW_COMPILED_PATH": "/tmp/views",
         "SSR_TEMP_PATH": "/tmp/ssr",
         "NODE_PATH": "node"
     }
