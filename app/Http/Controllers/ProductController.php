@@ -31,7 +31,7 @@ class ProductController extends Controller
             'category_id' => 'required|integer|exists:categories,id',
             'bid' => 'required|numeric',
             'bin' => 'required|numeric',
-            'start' => 'required|date',
+            'start' => 'required|date|after_or_equal:today',
             'end' => 'required|date|after:start',
             'image.*' => 'required|image',
         ]);
