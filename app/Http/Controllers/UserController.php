@@ -44,8 +44,10 @@ class UserController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'dob' => 'required|date',
+            'dob' => 'required|date|before:' . now()->subYears(18)->format('Y-m-d'),
             'password' => 'required|string|min:8|confirmed',
+        ],[
+            'dob.before' => 'You must be at least 18 years old'
         ]);
 
         $user = User::create([
