@@ -10,11 +10,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function () {
-    return redirect(route('home-page'));
-})->name('landing-page');
-Route::get('/home', [HomeController::class, 'index'])->name('home-page');
+Route::get('/', [HomeController::class, 'index'])->name('home-page');
 Route::get('/product-list/{categories}', [CategoryController::class, 'showByCategory'])->name('product-list');
 Route::get('/product-list/filter/{categories}', [CategoryController::class, 'filterByCategory'])->name('filter-list');
 Route::get('/product/{id}', [ProductController::class, 'showProduct'])->name('product-page');
